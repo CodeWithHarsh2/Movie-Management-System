@@ -1,68 +1,121 @@
-🎬 Movie & Actor Management System
 
-This project is a simple web application built using Spring Boot to manage movies and their actors. The idea was to create something practical where a user can add movies, assign actors to them, view the data, and update it when needed.
+#  Movie & Actor Management System
 
-Instead of going with common examples like students or books, I chose movies and actors to make the project a bit more interesting and relatable.
+This project is a simple web application built using Spring Boot to manage movies and their actors. The goal was to create a practical system where users can add movies, assign actors to them, view stored data, and update it when needed.
 
-🚀 What this project can do
+Instead of using very common examples like students or books, this project focuses on movies and actors to make it more interesting and relatable.
 
-Add a new movie
-Add actors and link them to a movie
-View all movies in a list
-Update movie details
-See actors along with their respective movies (using a join query)
+---
 
-🧱 Tech Stack
-Java
-Spring Boot
-Spring Data JPA
-MySQL
-JSP + JSTL
-Maven
+##  Features
 
-🗄️ How the data is structured
+- Add new movies  
+- Add actors linked to a movie  
+- View list of all movies  
+- Update existing movie details  
+- Display actors along with their movies (using an inner join query)  
 
-There are two main parts:
+---
 
-Movie
+##  Tech Stack
 
-id
-title
-genre
-releaseYear
+- Java  
+- Spring Boot  
+- Spring Data JPA (Hibernate)  
+- MySQL  
+- JSP (Java Server Pages)  
+- JSTL  
+- Maven  
 
-Actor
+---
 
-id
-name
-age
-movie (linked to Movie)
-Relationship:
+##  Database Design
 
-One movie can have multiple actors, but each actor belongs to only one movie.
+The application uses two main entities:
 
-⚙️ How to run the project
-Clone the repository:
+### Movie
+- id  
+- title  
+- genre  
+- releaseYear  
+
+### Actor
+- id  
+- name  
+- age  
+- movie (foreign key)
+
+### Relationship
+- One Movie → Many Actors  
+- One Actor → One Movie  
+
+---
+
+##  How to Run the Project
+
+1. Clone the repository:
+```bash
 git clone https://github.com/YOUR_USERNAME/movie-management-system.git
-Open it in IntelliJ or any IDE
-Create a MySQL database:
+````
+
+2. Open the project in IntelliJ / Eclipse
+
+3. Create a MySQL database:
+
+```sql
 CREATE DATABASE movie_db;
-Update your application.properties file with your MySQL username and password
-Run the application
-Open in browser:
+```
+
+4. Update `application.properties`:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/movie_db
+spring.datasource.username=root
+spring.datasource.password=yourpassword
+```
+
+5. Run the application
+
+6. Open in browser:
+
+```
 http://localhost:8080/addMovie
+```
 
-📌 Project structure (basic idea)
-Controller → handles requests
-Service → contains logic
-Repository → interacts with database
-Entity → defines tables
-JSP → user interface
+---
 
-🧪 Testing
+##  Project Structure
 
-A simple JUnit test is included to check whether movie data is getting saved correctly.
+```
+src/
+ ├── main/
+ │    ├── java/com/harsh/movieapp/
+ │    │    ├── controller/
+ │    │    ├── entity/
+ │    │    ├── repository/
+ │    │    └── service/
+ │    ├── resources/
+ │    └── webapp/WEB-INF/jsp/
+ │
+ └── test/
+      └── java/com/harsh/movieapp/
+```
 
-💭 What I learned
+---
 
-While working on this, I understood how different layers in a Spring Boot application connect with each other. I also got hands-on experience with database relationships, handling forms in JSP, and debugging issues when things didn’t work as expected.
+##  Testing
+
+Basic unit testing is implemented using JUnit to verify that movie data is saved correctly.
+
+---
+
+##  Learning Outcome
+
+Through this project, I learned:
+
+* How to build a full-stack application using Spring Boot
+* How to design and manage entity relationships
+* How to connect backend logic with JSP-based UI
+* How CRUD operations work in real applications
+* How to debug and fix real-world issues during development
+
