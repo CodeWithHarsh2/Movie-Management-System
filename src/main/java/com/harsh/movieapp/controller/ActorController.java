@@ -30,4 +30,19 @@ public class ActorController {
         actorService.save(actor);
         return "redirect:/list";
     }
+
+    @GetMapping("/editActor/{id}")
+    public String editActor(@PathVariable Long id, Model model) {
+        Actor actor = actorService.getActorById(id);
+        model.addAttribute("actor", actor);
+        model.addAttribute("movies", movieService.getAll());
+        return "edit-actor";
+    }
+
+    @PostMapping("/updateActor")
+    public String updateActor(@ModelAttribute Actor actor) {
+        actorService.save(actor);
+        return "redirect:/list";
+    }
 }
+

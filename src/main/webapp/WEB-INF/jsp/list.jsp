@@ -2,14 +2,12 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <a href="/addMovie">Add Movie</a>
     <a href="/addActor">Add Actor</a>
     <a href="/list">Movies</a>
 </div>
 
-<!-- ================= MOVIES TABLE ================= -->
 <div class="table-container">
     <h2>Movies List</h2>
 
@@ -34,8 +32,6 @@
     </table>
 </div>
 
-
-<!-- ================= JOIN TABLE ================= -->
 <div class="table-container">
     <h2>Actors and Their Movies</h2>
 
@@ -43,12 +39,16 @@
         <tr>
             <th>Actor Name</th>
             <th>Movie Title</th>
+            <th>Action</th>
         </tr>
 
-        <c:forEach items="${joinData}" var="row">
+        <c:forEach items="${actors}" var="a">
             <tr>
-                <td>${row[0]}</td>
-                <td>${row[1]}</td>
+                <td>${a.name}</td>
+                <td>${a.movie.title}</td>
+                <td>
+                    <a href="/editActor/${a.id}">Edit</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

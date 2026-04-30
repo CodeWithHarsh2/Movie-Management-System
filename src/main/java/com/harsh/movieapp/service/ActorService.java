@@ -17,9 +17,15 @@ public class ActorService {
         return repo.save(actor);
     }
 
-    // 🔥 ADD THIS METHOD
     public List<Object[]> getJoinData() {
         return repo.getActorMovieData();
     }
-}
 
+    public List<Actor> getAllActors() {
+        return repo.findAll();
+    }
+
+    public Actor getActorById(Long id) {
+        return repo.findById(id).orElse(null);
+    }
+}

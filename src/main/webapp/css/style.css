@@ -132,7 +132,7 @@ tr:hover {
     background: rgba(255,255,255,0.1);
 }
 
-/* JOIN TABLE (SEPARATE STYLE, DOES NOT BREAK MAIN TABLE) */
+/* JOIN TABLE */
 .join-table {
     width: 100%;
     border-collapse: collapse;

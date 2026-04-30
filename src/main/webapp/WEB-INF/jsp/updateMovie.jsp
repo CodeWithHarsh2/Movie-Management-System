@@ -8,7 +8,6 @@
 
 <form action="/updateMovie" method="post">
 
-    <!-- VERY IMPORTANT -->
     <input type="hidden" name="id" value="${movie.id}">
 
     Title:

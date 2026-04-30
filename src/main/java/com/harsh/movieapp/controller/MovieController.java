@@ -32,6 +32,7 @@ public class MovieController {
     public String list(Model model) {
         model.addAttribute("movies", service.getAll());
         model.addAttribute("joinData", actorService.getJoinData());
+        model.addAttribute("actors", actorService.getAllActors());
         return "list";
     }
 
