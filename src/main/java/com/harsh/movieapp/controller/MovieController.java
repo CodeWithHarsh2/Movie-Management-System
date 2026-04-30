@@ -22,12 +22,6 @@ public class MovieController {
         return "addMovie";
     }
 
-    @PostMapping("/saveMovie")
-    public String save(@ModelAttribute Movie movie) {
-        service.save(movie);
-        return "redirect:/list";
-    }
-
     @GetMapping("/list")
     public String list(Model model) {
         model.addAttribute("movies", service.getAll());
@@ -46,5 +40,15 @@ public class MovieController {
     public String updateMovie(@ModelAttribute Movie movie) {
         service.save(movie);
         return "redirect:/list";
+    }
+    @PostMapping("/saveMovie")
+    public String saveMovie(@ModelAttribute Movie movie, Model model) {
+        try {
+            service.save(movie);
+            return "redirect:/list";
+        } catch (Exception e) {
+            model.addAttribute("error", "Something went wrong!");
+            return "addMovie";
+        }
     }
 }
