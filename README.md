@@ -66,3 +66,4 @@ A simple JUnit test is included to check whether movie data is getting saved cor
 💭 What I learned
 
 While working on this, I understood how different layers in a Spring Boot application connect with each other. I also got hands-on experience with database relationships, handling forms in JSP, and debugging issues when things didn’t work as expected.
+

@@ -21,7 +21,6 @@ public class MovieService {
         return repo.findAll();
     }
 
-    // 🔥 ADD THIS
     public Movie getById(Long id) {
         return repo.findById(id).orElse(null);
     }
